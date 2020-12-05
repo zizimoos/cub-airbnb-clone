@@ -59,6 +59,7 @@ class RoomAdmin(admin.ModelAdmin):
         "description",
         "count_amenities",
         "count_photos",
+        "total_rating",
     )
 
     ordering = (
