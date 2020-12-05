@@ -19,4 +19,4 @@ class Message(core_models.TimeStampedModel):
     conversation = models.ForeignKey("Conversations", on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.user} says :{self.text}"
+        return f"{self.user} says :{self.message}"
