@@ -28,7 +28,17 @@ class RoomAdmin(admin.ModelAdmin):
     fieldsets = (
         (
             "Basic Info",
-            {"fields": ("name", "description", "country", "city", "address", "price")},
+            {
+                "fields": (
+                    "name",
+                    "description",
+                    "country",
+                    "city",
+                    "address",
+                    "price",
+                    "room_type",
+                )
+            },
         ),
         ("Times", {"fields": ("check_in", "check_out", "instant_book")}),
         (
@@ -64,7 +74,7 @@ class RoomAdmin(admin.ModelAdmin):
         "check_in",
         "check_out",
         "instant_book",
-        "description",
+        # "description",
         "count_amenities",
         "count_photos",
         "total_rating",
@@ -102,10 +112,12 @@ class RoomAdmin(admin.ModelAdmin):
         print(obj.amenities.count())
         return obj.amenities.count()
 
-    count_amenities.short_description = "amentiy"
+    count_amenities.short_description = "Amenity Count"
 
     def count_photos(self, obj):
         return obj.photos.count()
+
+    count_photos.short_description = "Photo Count"
 
 
 @admin.register(models.Photo)
